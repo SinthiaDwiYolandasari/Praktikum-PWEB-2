@@ -30,7 +30,7 @@
         }
         if (isset($_POST['submit'])){ //jika formulir sudah di submit
             $r = $_POST['r']; //maka kita mengambil nilai r dri sini
-            $luas = luas_lingkaran($r);
+            $luas = luas_lingkaran($r); 
             echo "Luas Lingkaran dengan jari jari $r adalah = $luas cm";
         }
     ?>

@@ -18,7 +18,7 @@ class mahasiswa {
         echo "Politeknik Negeri Cilacap";
     }
 
-    //method untuk menampilkan nama
+    //deklarasi method
     function tampil_nama(){
         //isi method
         return "Nama saya adalah Sinthia </br>";

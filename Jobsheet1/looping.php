@@ -19,14 +19,14 @@
     }
     
     // Tugas
-    echo "</br> Perulangan DO WHILE bilangan prima kurang dari 20";
+    echo "</br> Perulangan DO WHILE bilangan prima kurang dari 20 </br>";
 
-    $nilai = 2;
-    echo "</br>Bilangan prima kurang dari 20 adalah: </br>";
+    $nilai = 2; //dimulai dr angka 2
+
     do {
-        $isPrime = true;
+        $isPrime = true; //menentukan apakah $nilai prima atau bukan
         
-        if ($nilai <= 1) {
+        if ($nilai <= 1) { 
             $isPrime = false;
         } 
         else {
