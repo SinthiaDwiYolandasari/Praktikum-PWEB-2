@@ -28,47 +28,10 @@
 // echo "Nama Belakang : ". $informatika->nama_mahasiswa. "</br>";
 ?> -->
 
-<!-- TUGAS -->
-
-
-<!-- <?php
-// // Membuat class manusia
-// class Manusia {
-//     protected $nama_saya; // Menjadikan property protected
-
-//     public function panggil_nama($saya) {
-//         $this->nama_saya = $saya;
-//     }
-// }
-
-// // Class turunan atau sub class dari manusia
-// class Mahasiswa extends Manusia {
-//     private $nama_mahasiswa; // Menjadikan property private
-
-//     public function panggil_mahasiswa($mahasiswa) {
-//         $this->nama_mahasiswa = $mahasiswa;
-//     }
-
-//     public function tampilkan_data() {
-//         echo "Nama Depan Saya : " . $this->nama_saya . "</br>";
-//         echo "Nama Belakang : " . $this->nama_mahasiswa . "</br>";
-//     }
-// }
-
-// // Instansiasi class mahasiswa
-// $informatika = new Mahasiswa();
-
-// $informatika->panggil_nama("Sinthia Dwi");
-// $informatika->panggil_mahasiswa("Yolandasari");
-
-// // Memanggil metode tampilkan_data
-// $informatika->tampilkan_data();
-
-?> -->
-
+<!-- Tugas -->
 <?php
 class Manusia {
-    private $nama_saya; // Menjadikan property protected
+    private $nama_saya; 
 
     public function panggil_nama($saya) {
         $this->nama_saya = $saya;
@@ -80,7 +43,7 @@ class Manusia {
 
 // Class turunan atau sub class dari manusia
 class Mahasiswa extends Manusia {
-    protected $nama_mahasiswa; // Menjadikan property private
+    protected $nama_mahasiswa; 
 
     public function panggil_mahasiswa($mahasiswa) {
         $this->nama_mahasiswa = $mahasiswa;
@@ -91,7 +54,6 @@ class Mahasiswa extends Manusia {
     }
 }
 
-
 // Instansiasi class mahasiswa
 $informatika = new Mahasiswa();
 
@@ -101,3 +63,4 @@ $informatika->panggil_mahasiswa("Yolandasari");
 //Tampilkan data
 echo "Nama Depan Saya : ". $informatika->cari_nama(). "</br>";
 echo "Nama Belakang  : ". $informatika->cari_mahasiswa(). "</br>";
+?>
