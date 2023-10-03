@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,20 +23,15 @@
     $nilai = 2; //dimulai dr angka 2
 
     do {
-        $isPrime = true; //menentukan apakah $nilai prima atau bukan
-        
-        if ($nilai <= 1) { 
-            $isPrime = false;
-        } 
-        else {
-            for ($i = 2; $i < $nilai; $i++) {
+        $prima = true; //menentukan apakah $nilai prima atau bukan
+    
+            for ($i = 2; $i < $nilai; $i++) {  
                 if ($nilai % $i == 0) {
-                    $isPrime = false;
+                    $prima = false;
                 }
             }
-        }
         
-        if ($isPrime) {
+        if ($prima) {
             echo "$nilai </br>";
         }
         
