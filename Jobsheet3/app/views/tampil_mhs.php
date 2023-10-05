@@ -93,7 +93,7 @@ $db = new database; // instansiasi class database
             <tbody>
                 <?php
                 $no=1;
-                foreach ($db->tampil_mahasiswa() as $x){  //perulangan 
+                foreach ($db->tampil_mahasiswa() as $x){  //perulangan untuk menampilkan objek
                 ?>
                 <tr>
                     <!-- Menampilkan-->

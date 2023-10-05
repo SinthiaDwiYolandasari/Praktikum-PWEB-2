@@ -17,8 +17,17 @@ class database{
         while($d = mysqli_fetch_array($data)){
             $hasil[]=$d;
         }
-        return $hasil;
+        return  $hasil;
     }
+
+    // function tampil_mahasiswa_saya(){
+    //     $data= mysqli_query($this->koneksi, "select * from mahasiswa where nim='220102023'"); //menampilkan data mahasiswa dari tabel akademik
+    //     while($d = mysqli_fetch_array($data)){
+    //         $hasil[]=$d;
+    //     }
+    //     return $hasil;
+    // }
+    
     function tambah_mhs($nim, $nama, $alamat){
         mysqli_query($this->koneksi, "insert into mahasiswa(nim,nama,alamat) values('$nim', '$nama', '$alamat')");
     }
@@ -38,6 +47,8 @@ class database{
     function hapus($id){
         mysqli_query($this->koneksi, "delete from mahasiswa where id='$id'");
     }
+
+
 
     
     // Milik dosen
