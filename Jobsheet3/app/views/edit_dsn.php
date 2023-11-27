@@ -66,12 +66,12 @@ $db = new database();
             </div>
             <div class="mb-3">
                 <label for="nama_dosen" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama_dosen" name="nama_dosen"
-                    value="<?php echo $d['nama_dosen'] ?>">
+                <input type="text" class="form-control" id="nama" name="nama"
+                    value="<?php echo $d['nama'] ?>">
             </div>
             <div class="mb-3">
                 <label for="alamat_dosen" class="form-label">Alamat</label>
-                <textarea class="form-control" id="alamat_dosen" name="alamat_dosen" rows="5"><?php echo $d['alamat_dosen'] ?></textarea>
+                <textarea class="form-control" id="alamat" name="alamat" rows="5"><?php echo $d['alamat'] ?></textarea>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Simpan</button>

@@ -98,8 +98,8 @@ $db = new database;
                 <tr>
                     <td class="text-center"><?php echo $no++ ?></td>
                     <td><?php echo $y['nidn'] ?></td>
-                    <td><?php echo $y['nama_dosen'] ?></td>
-                    <td><?php echo $y['alamat_dosen'] ?></td>
+                    <td><?php echo $y['nama'] ?></td>
+                    <td><?php echo $y['alamat'] ?></td>
                     <td>
                         <a class="btn btn-warning" href="edit_dsn.php?id_dosen=<?php echo $y['id_dosen']; ?>&aksi=edit">Edit</a>
                         <a class="btn btn-danger" href="proses_dsn.php?id_dosen=<?php echo $y['id_dosen']; ?>&aksi=hapus">Hapus</a>

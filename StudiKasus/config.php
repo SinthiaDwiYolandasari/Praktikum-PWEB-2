@@ -3,7 +3,7 @@ class database {
     var $host = "localhost";
     var $username = "root";
     var $password = "";
-    var $db = "akademik";
+    var $db = "sipemduwis";
     var $koneksi;
 
     // method

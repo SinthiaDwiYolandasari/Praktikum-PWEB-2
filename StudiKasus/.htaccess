@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /StudiKasus/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^home/?$ index.php?page=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^pendaftar/?$ views/pendaftar/index.php?page=$1 [L]
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^dosen/?$ views/dosen/index.php?page=$1 [L]
+
