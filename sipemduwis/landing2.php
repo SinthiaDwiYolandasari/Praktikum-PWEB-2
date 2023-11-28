@@ -1,4 +1,18 @@
 
+
+<?php
+// Mulai sesi
+session_start();
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION["user_id"])) {
+    // Jika belum login, redirect ke halaman login
+    header("Location: landing.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,6 +71,23 @@
             max-width: 400px;
             margin: auto;
         }
+        /* Styling untuk logo profil */
+.profil-logo {
+    max-height: 40px;
+    margin-left: 10px;
+}
+
+/* Mengubah tata letak navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menghapus tombol login dan sign up */
+.navbar .d-flex {
+    display: none;
+}
     </style>
 </head>
 
@@ -79,13 +110,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/sipemduwis/home">Home</a>
+                    <a class="nav-link" href="http://localhost/sipemduwis/landing2.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/sipemduwis/contestant.php">Contestant</a>
+                    <a class="nav-link" href="http://localhost/sipemduwis/contestant2.php">Contestant</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/sipemduwis/duwis.php">Duta Wisata</a>
+                    <a class="nav-link" href="http://localhost/sipemduwis/duwis2.php">Duta Wisata</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#pariwisata">Pariwisata</a>
@@ -95,10 +126,12 @@
                 </li>
             </ul>
             <!-- Tombol Login dan Sign Up -->
-            <div class="d-flex">
-                <button class="btn btn-outline-primary me-2" type="button">Login</button>
-                <button class="btn btn-primary" type="button">Sign Up</button>
-            </div>
+            <div class="d-flex" id="profil-section">
+            <!-- Tambahkan gambar profil -->
+            <img src="img/profil_logo.png" alt="Profil" class="profil-logo" id="profil-img">
+            <!-- Tombol logout awalnya disembunyikan -->
+            <a href="logout.php" class="btn btn-outline-danger ms-2" id="logout-btn" style="display: none;">Logout</a>
+        </div>
         </div>
     </div>
 </nav>
@@ -111,8 +144,7 @@
     <div class="container">
         <div class="row">
             <!-- Bagian kiri dengan pesan selamat datang -->
-            <!-- Bagian kiri dengan pesan selamat datang -->
-<div class="col-md-6 d-flex flex-column justify-content-center align-items-start mt-5">
+<div class="col-md-6 mt-5">
     <h1>Sistem Informasi Pemilihan Duta Wisata</h1>
     <p>Daftarkan diri anda dan jadilah generasi muda penerus bangsa yang berkualitas dan berkarakter</p>
     <div class="mt-4">
@@ -124,13 +156,13 @@
 
 
             <!-- Bagian kanan dengan form login -->
-            <div class="col-md-6 align-items-start mt-5">
+            <!-- <div class="col-md-6 align-items-start mt-5">
                 <div class="card login-card">
                     <div class="card-body">
                         <h2 class="card-title text-center">Login</h2>
                         <form action="proses_login.php" method="post">
                             <!-- Your login form fields here -->
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label for="username" class="form-label">Username :</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
@@ -140,26 +172,24 @@
                             </div>
                             <button type="submit" class="btn btn-primary" >Login</button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 </section>
 
 
     <!-- Vision and Mission Section -->
-    <section id="vision-mission" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-2">Duta Wisata Cilacap</h2>
-        <div style="text-align: center;">
+    <section id="vdutawisata" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-2">Duta Wisata Cilacap</h2>
+            <div style="text-align: center;">
             <img src="img/icon.png" alt="icon" style="width: 45%; max-width: 75px; display: block; margin: 0 auto; margin-bottom: 10px;">
         </div>
-        <p style="text-align: center;">Duta Wisata merupakan seorang yang terpilih menjadi salah satu role model dalam pariwisata di daerah tersebut. Sehingga diharapkan dapat membangun kreativitas dan inovasi yang belum pernah terpikirkan sebelumnya</p>
-    </div>
-</section>
-
-
+            <p style = "text-align : center">Duta Wisata merupakan seorang yang terpilih menjadi salah satu role model dalam pariwisata di daerah tersebut. Sehingga diharapkan dapat membangun kreativitas dan inovasi yang belum pernah terpikirkan sebelumnya</p>
+        </div>
+    </section>
     <!-- Vision and Mission Section -->
     <section id="vision-mission" class="py-5">
         <div class="container">
@@ -172,7 +202,7 @@
         </div>
     </section>
     <!-- Vision and Mission Section -->
-    <section id="vision-mission" class="py-5">
+    <section id="kegiatan" class="py-5">
         <div class="container">
             <h2 class="text-center mb-2">Kegiatan Duta Wisata</h2>
             <div style="text-align: center;">
@@ -195,6 +225,24 @@
         </div>
     </section>
 
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Ambil elemen gambar profil dan tombol logout
+    var profilImg = document.getElementById("profil-img");
+    var logoutBtn = document.getElementById("logout-btn");
+
+    // Tambahkan event listener untuk mengatur tindakan klik pada gambar profil
+    profilImg.addEventListener("click", function () {
+        // Toggle tampilan tombol logout
+        if (logoutBtn.style.display === "none") {
+            logoutBtn.style.display = "inline-block";
+        } else {
+            logoutBtn.style.display = "none";
+        }
+    });
+});
+</script>
     <!-- Bootstrap JS scripts (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-eKpwnXyk77YZC73T+Tq4PJjDsh+8w7nO1Jlz+Hd0eL3HyLq+qjta7Hz7l5i2jBsa"
@@ -202,3 +250,6 @@
 </body>
 
 </html>
+
+
+?>

@@ -55,6 +55,17 @@
             max-width: 400px;
             margin: auto;
         }
+
+         /* Table styling */
+         .ranking-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .ranking-table th, .ranking-table td {
+            padding: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -85,7 +96,7 @@
                     <a class="nav-link" href="http://localhost/sipemduwis/contestant.php">Contestant</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#dutawisata">Duta Wisata</a>
+                    <a class="nav-link" href="http://localhost/sipemduwis/duwis.php">Duta Wisata</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#pariwisata">Pariwisata</a>
@@ -105,7 +116,7 @@
 
     <!-- Content Section -->
     <section class="container mt-5">
-        <h2 class="text-center mb-4">Contestant Page</h2>
+        <h2 class="text-center mb-4">Duta Wisata Cilacap Tahun 2023</h2>
 
         <!-- PHP Script to Fetch Contestant Data -->
         <?php
@@ -137,53 +148,222 @@
         ];
         ?>
 
-       <!-- Display Contestant Data -->
-<div class="row">
-    <!-- Bagian Kiri -->
-    <div class="col-md-6">
-        <?php
-        $halfCount = ceil(count($contestants) / 2);
-        $counter = 0;
-        foreach ($contestants as $contestant) :
-            if ($counter == $halfCount) break;
-        ?>
-            <div class="card mb-4">
-                <img src="path/to/contestant_photos/<?php echo $contestant['photo']; ?>" class="card-img-top" alt="<?php echo $contestant['name']; ?>">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $contestant['name']; ?></h5>
-                    <p class="card-text">Votes: <?php echo $contestant['votes']; ?></p>
-                    <a href="#" class="btn btn-primary">Vote Now</a>
-                </div>
-            </div>
-        <?php
-            $counter++;
-        endforeach;
-        ?>
-    </div>
+ <!-- Content Section -->
+ <section class="container mt-5">
+        <h2 class="text-center mb-4">Perolehan Vote Peserta</h2>
 
-    <!-- Bagian Kanan -->
-    <div class="col-md-6">
-        <?php
-        $counter = 0;
-        foreach ($contestants as $contestant) :
-            if ($counter >= $halfCount) :
-        ?>
-                <div class="card mb-4">
-                    <img src="path/to/contestant_photos/<?php echo $contestant['photo']; ?>" class="card-img-top" alt="<?php echo $contestant['name']; ?>">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $contestant['name']; ?></h5>
-                        <p class="card-text">Votes: <?php echo $contestant['votes']; ?></p>
-                        <a href="#" class="btn btn-primary">Vote Now</a>
-                    </div>
-                </div>
-        <?php
-            endif;
-            $counter++;
-        endforeach;
-        ?>
+        <!-- Display Contestant Ranking Table -->
+        <table class="table table-bordered ranking-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Assuming $contestants array is sorted by votes in descending order
+                $rank = 1;
+                foreach ($contestants as $contestant) :
+                ?>
+                    <tr>
+                        <td><?php echo $rank; ?></td>
+                        <td><?php echo $contestant['name']; ?></td>
+                        <td><?php echo $contestant['votes']; ?></td>
+                    </tr>
+                <?php
+                    $rank++;
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+
+        <!-- Display Contestant Data -->
+        <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant1.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant2.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant3.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant4.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant5.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant6.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant7.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant8.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant9.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant10.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant11.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant12.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant13.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant14.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant15.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant16.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant17.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant18.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant19.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>BRYAN MADEWA PUTRA</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <section class="contestant-section text-center">
+                <p>SMA NEGERI 1 JERUKLEGI</p>
+                <img src="img/contestant20.jpg" alt="Contestant Photo" style="width: 50%; max-width: 200px; display: block; margin: 0 auto; margin-bottom: 10px;">
+                <p>TRI MARTIANI RACHMAN</p>
+                <button type="button" class="btn btn-primary">Vote</button>
+            </section>
+        </div>
     </div>
 </div>
 
+    </section>
     <!-- Bootstrap JS scripts (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-eKpwnXyk77YZC73T+Tq4PJjDsh+8w7nO1Jlz+Hd0eL3HyLq+qjta7Hz7l5i2jBsa"

@@ -1,18 +1,31 @@
 <?php
-// Menggunakan session untuk menyimpan data sesi pengguna
+// Mulai sesi
 session_start();
 
-// Mengambil nilai dari formulir HTML
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Lakukan pengecekan apakah formulir dikirimkan
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ambil nilai dari formulir
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-// Lakukan validasi atau otentikasi pengguna di sini
-// Contoh sederhana, Anda dapat menyesuaikan dengan logika otentikasi yang sesuai
+    // Anda dapat menambahkan logika validasi di sini
 
-// Simpan data pengguna ke sesi (hanya contoh)
-$_SESSION['user_username'] = $username;
+    // Contoh sederhana: Periksa apakah username dan password cocok
+    if ($username == "admin" && $password == "admin") {
+        // Login berhasil
+        // Simpan informasi login di sesi (contoh: ID pengguna)
+        $_SESSION["user_id"] = 1;
 
-// Redirect ke halaman yang sesuai setelah login
-header('Location: welcome.php');
-exit();
+        // Redirect ke halaman landing.php
+        header("Location: landing2.php");
+        exit();
+    } else {
+        // Login gagal
+        echo "Login gagal. Mohon periksa kembali username dan password Anda.";
+    }
+} else {
+    // Jika formulir tidak dikirimkan, kembalikan ke halaman login
+    header("Location: landing.php");
+    exit();
+}
 ?>
